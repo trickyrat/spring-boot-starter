@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: trickyrat
+
+springdoc:
+  version: '@springdoc.version@'
+  swagger-ui:
+    use-root-path: false
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.trickyrat.model
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
