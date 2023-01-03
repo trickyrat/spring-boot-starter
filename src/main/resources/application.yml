@@ -10,7 +10,7 @@ spring:
     password: trickyrat
 
 springdoc:
-  version: '@springdoc.version@'
+  version: 'v1'
   swagger-ui:
     use-root-path: false
 

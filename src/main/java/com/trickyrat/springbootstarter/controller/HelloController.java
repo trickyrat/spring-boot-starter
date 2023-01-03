@@ -10,6 +10,6 @@ public class HelloController {
     @ResponseBody
     @GetMapping(value = "/", produces = {"application/json;charset=UTF-8"})
     public String greeting() {
-        return "Hello from springboot!";
+        return "Hello from SpringBoot 3!";
     }
 }
