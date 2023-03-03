@@ -25,7 +25,6 @@ public class UserController {
 
     @ResponseBody
     @GetMapping(value = "", produces = {"application/json;charset=UTF-8"})
-
     public List<User> findAllUsers(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
                                    @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
         return userService.findAllUsers(pageNum, pageSize);
