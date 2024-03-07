@@ -1,5 +1,7 @@
 package com.trickyrat.springbootstarter.model;
 
+import java.util.Date;
+
 public class User {
     private Integer id;
 
@@ -11,11 +13,11 @@ public class User {
 
     private String nickname;
 
-    private String createdate;
+    private Date createdtime;
 
     private String createdby;
 
-    private String lastmodifydate;
+    private Date lastmodifiedtime;
 
     private String lastmodifiedby;
 
@@ -59,12 +61,12 @@ public class User {
         this.nickname = nickname == null ? null : nickname.trim();
     }
 
-    public String getCreatedate() {
-        return createdate;
+    public Date getCreatedtime() {
+        return createdtime;
     }
 
-    public void setCreatedate(String createdate) {
-        this.createdate = createdate == null ? null : createdate.trim();
+    public void setCreatedtime(Date createdtime) {
+        this.createdtime = createdtime;
     }
 
     public String getCreatedby() {
@@ -75,12 +77,12 @@ public class User {
         this.createdby = createdby == null ? null : createdby.trim();
     }
 
-    public String getLastmodifydate() {
-        return lastmodifydate;
+    public Date getLastmodifiedtime() {
+        return lastmodifiedtime;
     }
 
-    public void setLastmodifydate(String lastmodifydate) {
-        this.lastmodifydate = lastmodifydate == null ? null : lastmodifydate.trim();
+    public void setLastmodifiedtime(Date lastmodifiedtime) {
+        this.lastmodifiedtime = lastmodifiedtime;
     }
 
     public String getLastmodifiedby() {

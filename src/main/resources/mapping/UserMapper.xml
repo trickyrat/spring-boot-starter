@@ -7,45 +7,46 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="createDate" jdbcType="VARCHAR" property="createdate" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdtime" />
     <result column="createdBy" jdbcType="VARCHAR" property="createdby" />
-    <result column="lastModifyDate" jdbcType="VARCHAR" property="lastmodifydate" />
+    <result column="lastModifiedTime" jdbcType="TIMESTAMP" property="lastmodifiedtime" />
     <result column="lastModifiedBy" jdbcType="VARCHAR" property="lastmodifiedby" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, username, password, salt, nickname, createDate, createdBy, lastModifyDate, lastModifiedBy
+    id, username, password, salt, nickname, createdTime, createdBy, lastModifiedTime, 
+    lastModifiedBy
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
+    from users
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAllUsers" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
-    from user
+    <include refid="Base_Column_List"></include>
+    from users
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from users
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.trickyrat.springbootstarter.model.User">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (username, password, salt, 
-      nickname, createDate, createdBy, 
-      lastModifyDate, lastModifiedBy)
+    insert into users (username, password, salt, 
+      nickname, createdTime, createdBy, 
+      lastModifiedTime, lastModifiedBy)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{createdby,jdbcType=VARCHAR}, 
-      #{lastmodifydate,jdbcType=VARCHAR}, #{lastmodifiedby,jdbcType=VARCHAR})
+      #{nickname,jdbcType=VARCHAR}, #{createdtime,jdbcType=TIMESTAMP}, #{createdby,jdbcType=VARCHAR}, 
+      #{lastmodifiedtime,jdbcType=TIMESTAMP}, #{lastmodifiedby,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.trickyrat.springbootstarter.model.User">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user
+    insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="username != null">
         username,
@@ -59,14 +60,14 @@
       <if test="nickname != null">
         nickname,
       </if>
-      <if test="createdate != null">
-        createDate,
+      <if test="createdtime != null">
+        createdTime,
       </if>
       <if test="createdby != null">
         createdBy,
       </if>
-      <if test="lastmodifydate != null">
-        lastModifyDate,
+      <if test="lastmodifiedtime != null">
+        lastModifiedTime,
       </if>
       <if test="lastmodifiedby != null">
         lastModifiedBy,
@@ -85,14 +86,14 @@
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
       </if>
-      <if test="createdate != null">
-        #{createdate,jdbcType=VARCHAR},
+      <if test="createdtime != null">
+        #{createdtime,jdbcType=TIMESTAMP},
       </if>
       <if test="createdby != null">
         #{createdby,jdbcType=VARCHAR},
       </if>
-      <if test="lastmodifydate != null">
-        #{lastmodifydate,jdbcType=VARCHAR},
+      <if test="lastmodifiedtime != null">
+        #{lastmodifiedtime,jdbcType=TIMESTAMP},
       </if>
       <if test="lastmodifiedby != null">
         #{lastmodifiedby,jdbcType=VARCHAR},
@@ -100,7 +101,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.trickyrat.springbootstarter.model.User">
-    update user
+    update users
     <set>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -114,14 +115,14 @@
       <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
       </if>
-      <if test="createdate != null">
-        createDate = #{createdate,jdbcType=VARCHAR},
+      <if test="createdtime != null">
+        createdTime = #{createdtime,jdbcType=TIMESTAMP},
       </if>
       <if test="createdby != null">
         createdBy = #{createdby,jdbcType=VARCHAR},
       </if>
-      <if test="lastmodifydate != null">
-        lastModifyDate = #{lastmodifydate,jdbcType=VARCHAR},
+      <if test="lastmodifiedtime != null">
+        lastModifiedTime = #{lastmodifiedtime,jdbcType=TIMESTAMP},
       </if>
       <if test="lastmodifiedby != null">
         lastModifiedBy = #{lastmodifiedby,jdbcType=VARCHAR},
@@ -130,14 +131,14 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.trickyrat.springbootstarter.model.User">
-    update user
+    update users
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
       nickname = #{nickname,jdbcType=VARCHAR},
-      createDate = #{createdate,jdbcType=VARCHAR},
+      createdTime = #{createdtime,jdbcType=TIMESTAMP},
       createdBy = #{createdby,jdbcType=VARCHAR},
-      lastModifyDate = #{lastmodifydate,jdbcType=VARCHAR},
+      lastModifiedTime = #{lastmodifiedtime,jdbcType=TIMESTAMP},
       lastModifiedBy = #{lastmodifiedby,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
