@@ -12,11 +12,11 @@ import org.springframework.context.annotation.Bean;
 
 @MapperScan("com.trickyrat.springbootstarter.mapper")
 @SpringBootApplication
-public class SpringbootstarterApplication {
+public class SpringBootStarterApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(SpringbootstarterApplication.class, args);
+        SpringApplication.run(SpringBootStarterApplication.class, args);
     }
 
     @Bean
