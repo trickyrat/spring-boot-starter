@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 public class SpringBootStarterApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(SpringBootStarterApplication.class, args);
     }
 

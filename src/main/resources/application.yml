@@ -7,7 +7,7 @@ spring:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/nestjsdemo
     username: root
-    password: Trickyrat_05
+    password:
 
 springdoc:
   version: 'v1'
